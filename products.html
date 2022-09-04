@@ -11,7 +11,9 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 
-  <script src="products"></script>
+  <script src="products"></script> 
+  <script src="js/login.js"></script>
+  
 </head>
 
 <body>
@@ -33,6 +35,7 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="index.html" id="LoginOrUser"></a>
           </li>
         </ul>
       </div>
@@ -46,8 +49,54 @@
       </div>
     </div>
   -->
+
+  <!-- Titulo y subTitulo-->
+    <div style="text-align: center;">
+      <h1 id="NombreDeCategoria">Productos</h1>
+      <p id="subtitulo"></p>
+  </div> <br>
+
+   <!-- Filtros -->
+   <div class="container">
+    <div class="row">
+      <div class="col text-end">
+        <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+          <input type="radio" class="btn-check" name="options" id="sortAsc">
+          <label class="btn btn-light" for="sortAsc">🆎⬇️</label>
+          <input type="radio" class="btn-check" name="options" id="sortDesc">
+          <label class="btn btn-light" for="sortDesc">🆎⬆️</label>
+          <input type="radio" class="btn-check" name="options" id="sortPriceAsc">
+          <label class="btn btn-light" for="sortPriceAsc">💲⬇️</label>
+          <input type="radio" class="btn-check" name="options" id="sortPriceDesc">
+          <label class="btn btn-light" for="sortPriceDesc">💲⬆️</label>
+          <input type="radio" class="btn-check" name="Relevancia" id="Relevancia">
+          <label class="btn btn-light" for="Relevancia">🥇</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+        <div class="row container p-0 m-0">
+          <div class="col">
+            <p class="font-weight-normal text-end my-2">Precio</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Filtro -->
     
-  <h1>Autos</h1>
   <div class="container">
     <p id="insercion"></p>
   </div>
@@ -74,6 +123,10 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/login.js"></script>
+
+  <script src="categories.js"></script>
 </body>
 
 </html>
