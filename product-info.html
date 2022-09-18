@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="inicio.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -31,18 +31,58 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="index.html" id="LoginOrUser"><p id="UsuarioReferencia">Login</p></a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    
+    <!--Lugar de insercion de los productos-->
+      <div class="container">
+        <div id="insercionProducto"></div>
+        <div id="insercionImagenProducto" class="row"></div>
+
+         <!--Caja de Comentarios-->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6"><br>
+
+        <form action="">
+         <textarea name="" id="nuevoComentario" rows="3" cols="7" type="text" placeholder="Comentario" class="form-control"></textarea>
+          <br>
+          <div class="row">
+            <div class="col"><button type="button" id="enviar" class="btn btn-primary">Comentar</button></div>
+            <div class="col">
+              <select class="form-select" aria-label="Default select example" id="Calificacion" required>
+                <option selected>Calificar</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+              </select>
+            </div>
+          </div>
+          
+        </form>
       </div>
     </div>
+
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <hr>
+      </div>
+    </div>
+
+    <!--Inserción del comentario-->
+    <div id="comentarios"></div>
+</div>
+      </div>
+
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -64,6 +104,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/login.js"></script>
+  
 </body>
 
 </html>
