@@ -26,9 +26,44 @@ const URL = `https://japceibal.github.io/emercado-api/products/${localStorage.ge
         }
     }
 
+    
+    // Mostrar productos Relacionados
+    
+    function cambiarProducto(relacionadoSeleccionado){
+      localStorage.setItem("identificador del producto", relacionadoSeleccionado);
+      window.location.href = "product-info.html";
+    }
+
+    function mostrarProductosRelacionados (){
+  
+      var arrayRelacionados = data.relatedProducts;
+
+      for (let l = 0; l<= arrayRelacionados.length; l++){ 
+        
+        var textRelacionados = `
+        <div class="col-3 border border-start rounded" style="margin: 0px 12px;" onclick=cambiarProducto(${arrayRelacionados[l].id})>
+        <div class="row">
+          <img src="${arrayRelacionados[l].image}" alt="" class="img-fluid">
+        </div>
+        <div class="row"><strong><p>${arrayRelacionados[l].name}</p></strong></div>
+      </div>
+      `;
+        document.getElementById("productosRelacionados").innerHTML += textRelacionados;
+      }
+
+    }
+
+    setTimeout(mostrarProductosRelacionados, 100);
+
     showResult(data);
 
     })
+
+    //Cambiar a Producto Relacionado
+    function cambiarProducto(relacionadoSeleccionado){
+      localStorage.setItem("identificador del producto", relacionadoSeleccionado);
+      window.location.href = "product-info.html";
+    }
 
     //Comentarios
     const URLcomentarios = `https://japceibal.github.io/emercado-api/products_comments/${localStorage.getItem('identificador del producto')}.json`;
@@ -43,18 +78,18 @@ const URL = `https://japceibal.github.io/emercado-api/products/${localStorage.ge
         for (let i = 0; i< data2.length; i++) {
 
              //Calificacion de comentarios Previos
-    var estrellas = document.getElementById("Calificacion").value;
-    if(data2[i].score == 1){
-        var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>`;
-    }else if(data2[i].score == 2){
-        var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>`;
-    }else if(data2[i].score == 3){
-        var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>`;
-    }else if(data2[i].score == 4){
-        var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span>`;
-    }else{
-        var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span>`;
-    };
+                var estrellas = document.getElementById("Calificacion").value;
+                if(data2[i].score == 1){
+                    var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>`;
+                }else if(data2[i].score == 2){
+                    var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>`;
+                }else if(data2[i].score == 3){
+                    var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>`;
+                }else if(data2[i].score == 4){
+                    var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span>`;
+                }else{
+                    var calificacionGuardadas = `<span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span>`;
+                };
 
 
             let comentarioPredeterminado = `<div class="text-bg-light p-3 border border-secondary rounded-start">
