@@ -9,8 +9,12 @@ const URL = `https://japceibal.github.io/emercado-api/products/${localStorage.ge
         var text =    `
         <br>
         <div class="row border border-1 p-2 border-opacity-10 rounded">
-        <h1>${data.name}</h1><hr>
-        <h4><strong>Precio: </strong>${data.currency}  ${data.cost}</h4><br><br>
+        <div class="row">
+        <div class="col"><h1>${data.name}</h1></div>
+        <div class="col"><h1 class="text-end">${data.currency}  ${data.cost}</h1></div>
+        </div>
+        <hr>
+        <br>
         <h4><strong>Descripcion: </strong>${data.description}</h4><br>
         <h4><strong>Categoria: </strong>${data.category}</h4><br><br>
         <h4><Strong>Cantidad de vendidos: </Strong> ${data.soldCount}</h4><br><br>
