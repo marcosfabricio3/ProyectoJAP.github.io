@@ -31,7 +31,7 @@ let max = 0;
                 var valor5 = ArrayDatos[i].cost;
 
                 var txt = `<div class="row">
-        <div class="list-group" id="cat-list-container" onclick="setProduct(${ArrayDatos.id})>
+        <div class="list-group" id="cat-list-container" onclick=setProduct(${ArrayDatos.id})>
           <div class="list-group-item-action">
             <div class="row">
               <div class="col-3">
@@ -133,7 +133,7 @@ let max = 0;
   
   })
   
-  
+  //Guardado del identificador y transpoorte a "products-info"
   function setProduct(identificador){
     localStorage.setItem("identificador del producto", identificador);
     window.location.href = "product-info.html";
@@ -155,7 +155,7 @@ let max = 0;
                     <div class="col">
                       <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                          <h4>${element.name} - UYU ${element.cost}</h4>
+                          <h4>${element.name} - ${element.currency} ${element.cost}</h4>
                           <p>${element.description}</p>
                         </div>
                         <small class="text-muted">${element.soldCount}</small>
