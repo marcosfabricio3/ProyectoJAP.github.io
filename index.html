@@ -16,35 +16,54 @@
     }
   </style>
 
-  <!--Nueva hoja de estilos para logearse-->
-  <lin rel="stylesheet" href="css/login.css">
-
 </head>
 
 <body>
   <main>
     <form action="inicio.html" style="text-align: center;">
-  <div class="container">
+      <div class="container justify-content-center">
 
-    <div class="row">
-      <div class="col"></div>
-      <div class="col"><img src="img/login.png" alt="" class="col-12"></div>
-      <div class="col"></div>
-    </div>
+        <div class="row justify-content-center">
+          <div class="col-5 ">
+            <img src="img/login.png" alt="" class="col-12">
+          </div>
+        </div>
 
-    <h4><strong>Inicio de seciòn</strong></h4>
-    <br>
-    <label>Email</label><br>
-    <div><input type="email" size="30px" required id="emailImput"></div>
-    
-    <label>Contraseña</label>
-    <div><input type="password" size="30px" required></div>
+        <div class="row">
+          <h4><strong>Inicio de seciòn</strong></h4>
+        </div>
+        
+        <br>
 
-    <br>
-    
-    <button type="submit" class="btn btn-primary" onclick="storage()">Ingresar</button>
-</form>
-</main>
+        <div class="row">
+          <label>Email</label>
+        </div>
+        <!-- INPUTS DE LOGEO -->
+        <div class="row">
+          <div class="col">
+            <input type="email" required id="emailImput">
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <label>Contraseña</label>
+        </div>
+      
+        <div class="row">
+          <div class="col">
+            <input type="password" required>
+          </div>
+        </div>
+
+        <br>
+      
+        <button type="submit" class="btn btn-primary" onclick="storage()">Ingresar</button>
+
+      </div>
+    </form>
+  </main>
 
 <footer class="text-muted">
   <div class="container">
