@@ -31,16 +31,19 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <div id="insercionDeLogin">
-              <form id="formularioLogin">
-            <select class="form-select" aria-label="Default select example" id="opcionesLogin">
-              <option selected id="LoginOrUser" value="0" hidden>Login</option>
-              <option value="1">Carrito</option>
-              <option value="2">Usuario</option>
-              <option value="3">Cerrar secion</option>
-            </select>
-          </form>
-          </div>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownLogin">Login</a>
+                  
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="/cart.html">Carrito</a></li>
+                    <li><a class="dropdown-item" href="/my-profile.html">Usuario</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="logout()">Cerrar secion</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -50,21 +53,21 @@
     
       <!--Lugar de insercion de los productos-->
       <div class="container">
-        <div id="insercionProducto"></div>
-        <div id="insercionImagenProducto" class="row"></div>
+        <div id="productInsertion"></div>
+        <div id="insertImageProduct" class="row"></div>
           
         <!--Caja de Comentarios-->
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-6"><br>
           <form action="">
-            <textarea name="" id="nuevoComentario" rows="3" cols="7" type="text" placeholder="Comentario" class="form-control"></textarea><br>
+            <textarea name="" id="newComment" rows="3" cols="7" type="text" placeholder="Comentario" class="form-control"></textarea><br>
             <div class="row">
               <div class="col">
-                <button type="button" id="enviar" class="btn btn-primary">Comentar</button>
+                <button type="button" id="send" class="btn btn-primary">Comentar</button>
               </div>
               <div class="col">
-                <select class="form-select" aria-label="Default select example" id="Calificacion" required>
+                <select class="form-select" aria-label="Default select example" id="qualification" required>
                   <option selected>Calificar</option>
                   <option value="1">⭐</option>
                   <option value="2">⭐⭐</option>
@@ -83,14 +86,14 @@
         </div>
 
         <!--Inserción del comentario-->
-        <div id="comentarios"></div>
+        <div id="comments"></div>
       </div>
       <hr>
       <div class="text-center">
         <h3>Productos Relacionados</h3><br>
 
         <!--Insercion de productos relacionados-->
-        <div id="productosRelacionados" class="row justify-content-center"></div>
+        <div id="relatedProducts" class="row justify-content-center"></div>
       </div>
     </div>
 

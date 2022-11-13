@@ -14,26 +14,18 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 //Funciones de barra superior a la Derecha
+document.getElementById('dropdownLogin').addEventListener('click', () => {
 
-document.addEventListener("click", function prueba3(){ 
-    var valorLogin = document.getElementById("opcionesLogin").value;
-    var loginText = document.getElementById("LoginOrUser").text;
+    var textLogin = document.getElementById('dropdownLogin').text;
 
     //transporte al login
-    if(loginText == "Login"){
+    if(textLogin == "Login"){
         window.location.href = "index.html";
-    }
-
-    //accion de cada opcion
-    if(valorLogin == 1){
-        document.getElementById("formularioLogin").reset();
-        window.location.href = "cart.html";
-    }else if(valorLogin == 2){
-        document.getElementById("formularioLogin").reset();
-        window.location.href = "my-profile.html";
-    }else if(valorLogin == 3){
-        document.getElementById("formularioLogin").reset();
-        window.location.href = "index.html";
-        localStorage.removeItem("email");
     }
 })
+
+function logout(){
+    
+    window.location.href = "index.html";
+    localStorage.removeItem("email");
+}

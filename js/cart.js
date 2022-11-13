@@ -289,7 +289,3 @@ modal.addEventListener('keyup', () => {
   desinvalidarModalTransferencia();
 
 })
-
-function prueba(){
-
-}

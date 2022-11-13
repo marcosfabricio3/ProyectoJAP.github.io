@@ -5,16 +5,38 @@ function storage () {
     localStorage.setItem("email", inputEmail.value);
 }
 
+
 // insercion del mail ingresado en la barra superior
-function cartelDelUsuario() {
+function makeUsername() {
     
     //Cortar Email
-    var emailObtenido = localStorage.getItem('email');
-    var username = emailObtenido.slice(0,emailObtenido.indexOf('@'));
+    var email = localStorage.getItem('email');
+    var username = email.slice(0,email.indexOf('@'));
 
     //Guardar username
     var inputEmail = document.getElementById('emailImput');
-    document.getElementById('LoginOrUser').innerHTML = username;
-}
     
-cartelDelUsuario();
+    document.getElementById('dropdownLogin').innerHTML = username;
+}
+
+
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields BOOTSTRAP
+(() => {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    
+
+makeUsername();
