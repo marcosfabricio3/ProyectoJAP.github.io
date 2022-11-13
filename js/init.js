@@ -39,3 +39,11 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+function goToUser(){
+  window.location.href = "my-profile.html"
+}
+
+function goToCart(){
+  window.location.href = "cart.html"
+}
