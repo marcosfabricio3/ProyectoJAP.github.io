@@ -1,11 +1,11 @@
-const URL = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem('catID')}.json`
+const URL = PRODUCTS_URL +`${localStorage.getItem('catID')}`;
 
-const nombreAs = "AZ";
-const nombreDe = "ZA";
-const precioAs = "$->$$";
-const precioDe = "$$->$";
-const relevancia = "❤️";
-let FiltroArray = [];
+const nameAS = "AZ";
+const nameDES = "ZA";
+const priceAS = "$->$$";
+const priceDES = "$$->$";
+const relevance = "❤️";
+let filterArray = [];
 let min = 0;
 let max = 0;
 
@@ -13,41 +13,41 @@ fetch(URL)
   .then(Response => Response.json())
   .then(data => {
 
-  const ArrayDatos = data.products;
-  const NombreCat = data.catName;
+  const ArrayData = data.products;
+  const NameCat = data.catName;
   
   //Categoria de subtitulo
-  document.getElementById('subtitulo').innerHTML = 'Verás aqui todos los productos de la categoría ' + NombreCat
+  document.getElementById('productsDescription').innerHTML = 'Verás aqui todos los productos de la categoría ' + NameCat
 
-  function listado1 () {
-    for (var i = 0; i < ArrayDatos.length; i++) {
+  function list1 () {
+    for (var i = 0; i < ArrayData.length; i++) {
 
-      var referencia1 = "modelo" + i;
-      var referencia2 = "descripcion" + i;
-      var referencia3 = "vendidos" + i;
-      var referencia4 = "imagen" + i;
+      var reference1 = "modelo" + i;
+      var reference2 = "descripcion" + i;
+      var reference3 = "vendidos" + i;
+      var reference4 = "imagen" + i;
 
-      var valor1 = ArrayDatos[i].name;
-      var valor2 = ArrayDatos[i].description;
-      var valor3 = ArrayDatos[i].soldCount + ' Vendidas';
-      var valor4 = ArrayDatos[i].image;
-      var valor5 = ArrayDatos[i].cost;
+      var value1 = ArrayData[i].name;
+      var value2 = ArrayData[i].description;
+      var value3 = ArrayData[i].soldCount + ' Vendidas';
+      var value4 = ArrayData[i].image;
+      var value5 = ArrayData[i].cost;
 
       var txt = `
       <div class="row">
-        <div class="list-group" id="cat-list-container" onclick=setProduct(${ArrayDatos.id})>
+        <div class="list-group" id="cat-list-container" onclick=setProduct(${ArrayData.id})>
           <div class="list-group-item-action">
             <div class="row">
               <div class="col-3">
-                <img src="${valor4}" alt="product image" class="img-thumbnail" id="${referencia4}">
+                <img src="${value4}" alt="product image" class="img-thumbnail" id="${reference4}">
               </div>
               <div class="col">
                 <div class="d-flex w-100 justify-content-between">
                   <div class="mb-1">
-                    <h4 id="${referencia1}">${valor1} - UYU ${valor5}</h4>
-                    <p id="${referencia2}">${valor2}</p>
+                    <h4 id="${reference1}">${value1} - UYU ${value5}</h4>
+                    <p id="${reference2}">${value2}</p>
                   </div>
-                  <small class="text-muted" id="${referencia3}">${valor3}</small>
+                  <small class="text-muted" id="${reference3}">${value3}</small>
                 </div>
               </div>
             </div>
@@ -55,82 +55,82 @@ fetch(URL)
         </div>
       </div><br>`;
                 
-      document.getElementById("insercion").innerHTML += txt;                
+      document.getElementById("insertion").innerHTML += txt;                
     }
   }
-  listado1();
+  list1();
 
   //Limpiar Filtro
 
   document.getElementById("clearRangeFilter").addEventListener("click", function(){
-  document.getElementById("insercion").innerHTML = "";
+  document.getElementById("insertion").innerHTML = "";
   document.getElementById("rangeFilterCountMin").value = null;
   document.getElementById("rangeFilterCountMax").value = null;
   
-  listado1();
+  list1();
   });
 })
 
 //Filtro
 
-function comparacion(a,b){
+function comparison(a,b){
   return a.name.localeCompare(b.name)
 }
   
-function filtradoPorCategorias(criterio, array){
-  if (criterio === nombreAs){
-    FiltroArray = array.sort(comparacion)
+function filterByCategory(criterion, array){
+  if (criterion === nameAS){
+    filterArray = array.sort(comparison)
   }
-  if (criterio === nombreDe){
-    FiltroArray = array.reverse(comparacion)
+  if (criterion === nameDES){
+    filterArray = array.reverse(comparison)
   }
-  if (criterio === precioAs){
-    FiltroArray = array.sort((a,b) => {return a.cost - b.cost} )
+  if (criterion === priceAS){
+    filterArray = array.sort((a,b) => {return a.cost - b.cost} )
   }
-  if (criterio === precioDe){
-    FiltroArray = array.sort((a,b) => {return b.cost - a.cost} )
+  if (criterion === priceDES){
+    filterArray = array.sort((a,b) => {return b.cost - a.cost} )
   }
-  if (criterio === relevancia){
-    FiltroArray = array.sort((a,b) => {return b.soldCount - a.soldCount} )
+  if (criterion === relevance){
+    filterArray = array.sort((a,b) => {return b.soldCount - a.soldCount} )
   }
-  document.getElementById("insercion").innerHTML = "" 
-  showinfo(FiltroArray)
+  document.getElementById("insertion").innerHTML = "" 
+  showinfo(filterArray)
 }
   
 document.addEventListener("DOMContentLoaded", function (e) {
   fetch(URL)
   .then( res => res.json())
   .then(data => {
-    FiltroArray = data.products
-    document.getElementById("insercion").innerHTML = "";
-    showinfo(FiltroArray)
+    filterArray = data.products
+    document.getElementById("insertion").innerHTML = "";
+    showinfo(filterArray)
   })
 
   document.getElementById("sortAsc").addEventListener("click", function(){
-    filtradoPorCategorias(nombreAs, FiltroArray);
+    filterByCategory(nameAS, filterArray);
   });
   
   document.getElementById("sortDesc").addEventListener("click", function(){
-    filtradoPorCategorias(nombreDe, FiltroArray);
+    filterByCategory(nameDES, filterArray);
   });
   
   document.getElementById("sortPriceAsc").addEventListener("click", function(){
-    filtradoPorCategorias(precioAs, FiltroArray);
+    filterByCategory(priceAS, filterArray);
   });
   
   document.getElementById("sortPriceDesc").addEventListener("click", function(){
-    filtradoPorCategorias(precioDe, FiltroArray);
+    filterByCategory(priceDES, filterArray);
   });
 
   document.getElementById("Relevancia").addEventListener("click", function(){
-    filtradoPorCategorias(relevancia, FiltroArray);
+    filterByCategory(relevance, filterArray);
   });
   
   document.getElementById("rangeFilterCount").addEventListener("click", function(){
     min = document.getElementById("rangeFilterCountMin").value;
     max = document.getElementById("rangeFilterCountMax").value;
-    document.getElementById("insercion").innerHTML = "";
-    showinfo(FiltroArray)
+    document.getElementById("insertion").innerHTML = "";
+    showinfo(filterArray)
   });
   
 })
@@ -166,7 +166,7 @@ function showinfo(array){
         </div>
       </div>
       <br>`;
-      document.getElementById("insercion").innerHTML += elementHTML;
+      document.getElementById("insertion").innerHTML += elementHTML;
     }
   });
 }

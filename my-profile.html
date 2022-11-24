@@ -45,27 +45,83 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <div id="insercionDeLogin">
-              <form id="formularioLogin">
-            <select class="form-select" aria-label="Default select example" id="opcionesLogin">
-              <option selected id="LoginOrUser" value="0" hidden>Login</option>
-              <option value="1">Carrito</option>
-              <option value="2">Usuario</option>
-              <option value="3">Cerrar secion</option>
-            </select>
-          </form>
-          </div>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownLogin">Login</a>
+                  
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" onclick="goToCart()">Carrito</a></li>
+                    <li><a class="dropdown-item" onclick="goToUser()">Usuario</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="logout()">Cerrar secion</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
+    <!-- <div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
+    </div> -->
+  <div class="container">
+    <br>
+
+    <div class="row">
+      <div class="col"><h3>Perfil</h3></div>
+      <div class="col"><img src="img/img_perfil.png" id="previa" style="max-width: 20%;" class="rounded float-end"></div>
     </div>
+    <hr>
+    <form action="" class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col">
+          <label for="firstName" class="form-label">Primer nombre*</label>
+          <input type="text" class="form-control" id="firstName" value="" required>
+        </div>
+        <div class="col">
+          <label for="secondName" class="form-label">Segundo nombre</label>
+          <input type="text" class="form-control" id="secondName" value="">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="surname" class="form-label">Primer apellido*</label>
+          <input type="text" class="form-control" id="surname" value="" required>
+        </div>
+        <div class="col">
+          <label for="secondSurname" class="form-label">Segundo apellido</label>
+          <input type="text" class="form-control" id="secondSurname" value="">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="emailProfile" class="form-label">E-mail*</label>
+          <input type="email" class="form-control" id="emailProfile" value="" required>
+        </div>
+        <div class="col">
+          <label for="profilePicture" class="form-label">Imagen de perfil</label>
+          <input class="form-control" type="file" id="profilePicture" accept="image/*">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label for="phoneNumber" class="form-label">Teléfono de contacto*</label>
+          <input type="text" class="form-control" id="phoneNumber" value="" required>
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" id="saveChanges">Guardar Cambios</button>
+    </form>
+  </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

@@ -20,10 +20,10 @@
 
 <body>
   <main>
-    <form action="inicio.html" style="text-align: center;">
+    <form action="inicio.html" style="text-align: center;" class="needs-validation" novalidate>
       <div class="container justify-content-center">
 
-        <div class="row justify-content-center">
+        <div class="row d-flex justify-content-center">
           <div class="col-5 ">
             <img src="img/login.png" alt="" class="col-12">
           </div>
@@ -35,34 +35,28 @@
         
         <br>
 
-        <div class="row">
-          <label>Email</label>
-        </div>
         <!-- INPUTS DE LOGEO -->
-        <div class="row">
-          <div class="col">
-            <input type="email" required id="emailImput">
-          </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-3">
+            <div class="row">
+              <label for="emailImput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailImput" required>
+            </div>
+            <br>
+            <div class="row">
+              <label for="loginPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+          </div>  
         </div>
-
-        <br>
-
-        <div class="row">
-          <label>Contraseña</label>
-        </div>
-      
-        <div class="row">
-          <div class="col">
-            <input type="password" required>
-          </div>
-        </div>
-
+          
         <br>
       
         <button type="submit" class="btn btn-primary" onclick="storage()">Ingresar</button>
 
       </div>
     </form>
+    
   </main>
 
 <footer class="text-muted">
@@ -75,10 +69,9 @@
     <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
   </div>
 </footer>
-
   <script src="js/login.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </body>
 
 </html>
-
 
